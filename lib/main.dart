@@ -1,8 +1,8 @@
+import 'package:bookly/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'Splash/splash_screen.dart';
-import 'cubit/cubit.dart';
+import 'core/cubit/cubit.dart';
+import 'features/Splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,10 +21,13 @@ class MyApp extends StatelessWidget {
           lazy: true,
         )
       ],
-      child: MaterialApp(
+      child: MaterialApp(color: mainColor,
         title: 'Flutter Demo',
+
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          scaffoldBackgroundColor: mainColor,
+
           useMaterial3: true,
         ),
         home: const SplashScreen(),

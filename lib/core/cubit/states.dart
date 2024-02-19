@@ -11,3 +11,5 @@ class BooklyGetDataErrorState extends BooklyStates {
 
   BooklyGetDataErrorState(this.error);
 }
+
+class GoToHomeScreen extends BooklyStates{}
