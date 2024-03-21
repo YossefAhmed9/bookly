@@ -12,10 +12,20 @@ class BooklyCubit extends Cubit<BooklyStates> {
   }
 
  waitTwoSeconds(context, screen){
-  Future.delayed(const Duration(seconds: 2)).then((value) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
 
-    print(state);
-  });
-}
+   Future.delayed(const Duration(seconds: 2)).then((value) {
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => screen), (route){
+      return false;
+    }
+
+  );
+});}
+
+
+  void navigateAndDelPast(context, screen) {
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => screen), (route){
+          return false;
+        }
+    );
+  }
 }

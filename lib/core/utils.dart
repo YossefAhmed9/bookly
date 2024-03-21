@@ -1,3 +1,3 @@
 class AssetClass{
-  String booklyLogo='assets/images/Logo.png';
+  var booklyLogo='assets/images/Logo.png';
 }
