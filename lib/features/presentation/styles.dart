@@ -5,7 +5,7 @@ class Styles {
       fontWeight: FontWeight.w600, fontSize: 25, fontFamily: 'Sectra');
 
   TextStyle? bookTitle = const TextStyle(
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis,
     fontSize: 22,
     fontFamily: 'Raleway',
   );

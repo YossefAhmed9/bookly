@@ -1,5 +1,7 @@
 import 'package:bookly/features/presentation/styles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({super.key});
@@ -7,7 +9,7 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(color: Colors.transparent),
+      decoration: const BoxDecoration(),
       child: Row(
         children: [
           Container(
@@ -27,9 +29,15 @@ class BestSellerItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Harry Potter',
-                  style: Styles().bookTitle,
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: Text(
+                    'Harry Potter and some other words',
+                    maxLines: 2,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles().bookTitle,
+                  ),
                 ),
                 Text('Author name', style: Styles().authorName),
                 Row(

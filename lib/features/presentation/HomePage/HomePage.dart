@@ -1,5 +1,6 @@
 import 'package:bookly/core/utils.dart';
 import 'package:bookly/features/presentation/styles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -41,17 +42,25 @@ class HomePage extends StatelessWidget {
                   itemBuilder: (context, index) => const BookItem(),
                 ),
               ),
-               Padding(
-                padding:const EdgeInsets.symmetric(vertical: 8.0),
-                child: Text('Best Sellers',style: Styles().title1,),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  'Best Sellers',
+                  style: Styles().title1,
+                ),
               ),
               SizedBox(
-                width: double.infinity,
-                  height: MediaQuery.of(context).size.height *0.63,
-                  child: ListView.builder(itemBuilder: (context,index)=>const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: BestSellerItem(),
-                  ))) ,
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.63,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                      itemBuilder: (context, index) => Container(
+                        width: double.infinity,
+                        child: const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 8.0),
+                              child: BestSellerItem(),
+                            ),
+                      ))),
             ],
           ),
         ),
@@ -59,6 +68,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-
-
