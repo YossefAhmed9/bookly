@@ -22,6 +22,26 @@ class BookDetails extends StatelessWidget {
               icon: const Icon(FontAwesomeIcons.cartPlus)),
         ],
       ),
+      body: Center(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.63,
+                height: MediaQuery.of(context).size.width * 1,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(25)),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Image.asset(
+                  'assets/images/content.jpg',
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
