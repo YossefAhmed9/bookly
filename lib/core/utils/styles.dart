@@ -7,7 +7,7 @@ class Styles {
   static const  TextStyle bookTitle =  TextStyle(
     fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis,
     fontSize: 22,
-    fontFamily: 'Raleway',
+    fontFamily: 'Sectra',
   );
 
   static const TextStyle authorName =
