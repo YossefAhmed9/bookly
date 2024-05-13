@@ -45,11 +45,11 @@ class BookDetails extends StatelessWidget {
             Text(
               'Book Title',
               style: Styles.bookTitle
-                  .copyWith(fontWeight: FontWeight.w100,fontSize: 30,),
+                  .copyWith(fontWeight: FontWeight.w200,fontSize: 30),
             ),
              Text(
               'Author name',
-              style: Styles.authorName.copyWith(fontSize: 20),
+              style: Styles.authorName.copyWith(fontSize: 20,fontStyle: FontStyle.italic),
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
