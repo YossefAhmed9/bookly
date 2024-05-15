@@ -27,19 +27,19 @@ class HomePage extends StatelessWidget {
         backgroundColor: mainColor,
       ),
       backgroundColor: mainColor,
-      body:  const Padding(
-        padding: EdgeInsets.all(12.0),
+      body:   Padding(
+        padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
             CustomScrollView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverToBoxAdapter(
-                  child: BookItemListView(),
+                  child: BookItemListView(height:  MediaQuery.of(context).size.height * 0.20,),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: BestSellerItemListView(),
                 ),
               ],

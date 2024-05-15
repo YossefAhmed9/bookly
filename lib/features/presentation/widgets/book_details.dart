@@ -1,5 +1,7 @@
+import 'package:bookly/features/presentation/widgets/book_item_listView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
@@ -34,50 +36,64 @@ class BookDetails extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: Column(
-            children: [
-              //Book Cover
-              Container(
-                width: MediaQuery.of(context).size.width * 0.63,
-                height: MediaQuery.of(context).size.width * 1,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(25)),
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Image.asset(
-                  'assets/images/content.jpg',
-                  fit: BoxFit.fill,
-                ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+        child: Column(
+          children: [
+            //Book Cover
+            Container(
+              width: MediaQuery.of(context).size.width * 0.63,
+              height: MediaQuery.of(context).size.width * 1,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(25)),
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              child: Image.asset(
+                'assets/images/content.jpg',
+                fit: BoxFit.fill,
               ),
-              //Book title
-              Text(
-                'Book Title',
+            ),
+            //Book title
+            Text(
+              'Book Title',
+              style: Styles.bookTitle
+                  .copyWith(fontWeight: FontWeight.w200, fontSize: 30),
+            ),
+            //Author name
+            Text(
+              'Author name',
+              style: Styles.authorName
+                  .copyWith(fontSize: 20, fontStyle: FontStyle.italic),
+            ),
+            const BookRating(),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 25.0),
+              child: Row(
+                children: [
+                  //price button
+                  BookPriceButton(),
+                  //free preview button
+                  FreePreviewButton(),
+                ],
+              ),
+            ),
+            //You may also like
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'You may also like',
                 style: Styles.bookTitle
-                    .copyWith(fontWeight: FontWeight.w200, fontSize: 30),
+                    .copyWith(fontWeight: FontWeight.w200, fontSize: 17),
               ),
-              //Author name
-              Text(
-                'Author name',
-                style: Styles.authorName
-                    .copyWith(fontSize: 20, fontStyle: FontStyle.italic),
-              ),
-              const BookRating(),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 35.0),
-                child: Row(
-                  children: [
-                    //price button
-                    BookPriceButton(),
-                    //free preview button
-                    FreePreviewButton(),
-
-                  ],
+            ),
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(),
+                child: BookItemListView(
+                  height: MediaQuery.of(context).size.height * 0.15,
                 ),
-              ),
-            ],
-          ),
+                ),
+            ),
+          ],
         ),
       ),
     );
