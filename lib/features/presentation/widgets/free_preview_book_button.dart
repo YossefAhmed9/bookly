@@ -13,8 +13,8 @@ class FreePreviewButton extends StatelessWidget {
         decoration: const BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20))),
+                topRight: Radius.circular(30),
+                bottomRight: Radius.circular(30))),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 10),
           child: Center(

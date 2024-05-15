@@ -13,8 +13,8 @@ class BookPriceButton extends StatelessWidget {
         decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20))),
+                topLeft: Radius.circular(30),
+                bottomLeft: Radius.circular(30))),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Center(
