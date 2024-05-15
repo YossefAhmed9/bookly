@@ -36,65 +36,78 @@ class BookDetails extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          children: [
-            //Book Cover
-            Container(
-              width: MediaQuery.of(context).size.width * 0.63,
-              height: MediaQuery.of(context).size.width * 1,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(25)),
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: Image.asset(
-                'assets/images/content.jpg',
-                fit: BoxFit.fill,
-              ),
-            ),
-            //Book title
-            Text(
-              'Book Title',
-              style: Styles.bookTitle
-                  .copyWith(fontWeight: FontWeight.w200, fontSize: 30),
-            ),
-            //Author name
-            Text(
-              'Author name',
-              style: Styles.authorName
-                  .copyWith(fontSize: 20, fontStyle: FontStyle.italic),
-            ),
-            const BookRating(),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 25.0),
-              child: Row(
+      body: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Column(
                 children: [
-                  //price button
-                  BookPriceButton(),
-                  //free preview button
-                  FreePreviewButton(),
+                  //Book Cover
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.63,
+                    height: MediaQuery.of(context).size.width * 1,
+                    decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(25)),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: Image.asset(
+                      'assets/images/content.jpg',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  //Book title
+                  Text(
+                    'Book Title',
+                    style: Styles.bookTitle
+                        .copyWith(fontWeight: FontWeight.w200, fontSize: 30),
+                  ),
+                  //Author name
+                  Text(
+                    'Author name',
+                    style: Styles.authorName
+                        .copyWith(fontSize: 20, fontStyle: FontStyle.italic),
+                  ),
+                  const BookRating(),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 25.0),
+                    child: Row(
+                      children: [
+                        //price button
+                        BookPriceButton(),
+                        //free preview button
+                        FreePreviewButton(),
+                      ],
+                    ),
+                  ),
+                  //You may also like
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'You may also like',
+                            style: Styles.bookTitle
+                                .copyWith(fontWeight: FontWeight.w500, fontSize: 18),
+                          ),
+                        ),
+                        Container(
+                          decoration: const BoxDecoration(),
+                          child: BookItemListView(
+                            height: MediaQuery.of(context).size.height * 0.17,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
                 ],
               ),
             ),
-            //You may also like
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'You may also like',
-                style: Styles.bookTitle
-                    .copyWith(fontWeight: FontWeight.w200, fontSize: 17),
-              ),
-            ),
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(),
-                child: BookItemListView(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                ),
-                ),
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
