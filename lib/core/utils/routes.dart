@@ -1,4 +1,4 @@
-import 'package:bookly/features/presentation/spalsh/splash_screen.dart';
+import 'package:bookly/search_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/book_details_view.dart';
@@ -21,6 +21,10 @@ abstract class AppRoutes{
       GoRoute(
         path: '/bookDetails',
         builder: (context, state) =>const BookDetailsView(),
+      ),
+      GoRoute(
+        path: '/search',
+        builder: (context, state) =>const SearchScreen(),
       ),
     ],
   );

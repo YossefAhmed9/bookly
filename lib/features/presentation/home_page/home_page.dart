@@ -3,6 +3,7 @@ import 'package:bookly/features/presentation/widgets/best_seller_item_listView.d
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import '../../../core/utils/utils.dart';
 import '../../../core/utils/styles.dart';
 import '../widgets/book_item_listView.dart';
@@ -15,19 +16,24 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(AssetClass().booklyLogo, scale: 3.5),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 15, right: 15),
-            child: Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              size: 20,
+            padding: const EdgeInsets.only(right: 15),
+            child: IconButton(
+              icon: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                size: 20,
+              ),
+              onPressed: () {
+                GoRouter.of(context).push('/search');
+              },
             ),
           )
         ],
         backgroundColor: mainColor,
       ),
       backgroundColor: mainColor,
-      body:   Padding(
+      body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
@@ -37,7 +43,9 @@ class HomePage extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverToBoxAdapter(
-                  child: BookItemListView(height:  MediaQuery.of(context).size.height * 0.20,),
+                  child: BookItemListView(
+                    height: MediaQuery.of(context).size.height * 0.20,
+                  ),
                 ),
                 const SliverToBoxAdapter(
                   child: Padding(
@@ -48,8 +56,8 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SliverToBoxAdapter(
-                  child: BestSellerItemListView(),
+                 SliverToBoxAdapter(
+                  child: BestSellerItemListView(height: MediaQuery.of(context).size.height * 0.623,),
                 ),
               ],
             ),

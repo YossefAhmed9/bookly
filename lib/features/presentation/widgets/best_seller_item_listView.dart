@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'Best_seller_item.dart';
 
 class BestSellerItemListView extends StatelessWidget {
-  const BestSellerItemListView({super.key});
-
+  const BestSellerItemListView({super.key,required this.height});
+final double height;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.623,
+      height: height,
       child: ListView.builder(
         // itemCount: 10,
         shrinkWrap: true,

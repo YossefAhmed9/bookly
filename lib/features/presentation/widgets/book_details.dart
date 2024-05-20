@@ -40,7 +40,6 @@ class BookDetails extends StatelessWidget {
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
-
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: Column(
