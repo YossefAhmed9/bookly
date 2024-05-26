@@ -39,6 +39,8 @@ dependencies:
   bloc:
   font_awesome_flutter:
   go_router:
+  dio:
+  http:
 
 dev_dependencies:
   flutter_test:
