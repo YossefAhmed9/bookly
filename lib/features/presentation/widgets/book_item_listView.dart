@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'book_item.dart';
 
 class BookItemListView extends StatelessWidget {
@@ -16,7 +15,7 @@ final double height;
           child: ListView.builder(
             itemCount: 10,
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => const BookItem(),
+            itemBuilder: (context, index) =>  BookItem(bookItemIndex: index),
           ),
         ),
       ],

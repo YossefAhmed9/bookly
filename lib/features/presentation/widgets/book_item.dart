@@ -1,9 +1,11 @@
+import 'package:bookly/core/cubit/home_cubit/cubit.dart';
+import 'package:bookly/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key});
-
+  const BookItem({super.key,required this.bookItemIndex});
+final int bookItemIndex;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,8 +13,8 @@ class BookItem extends StatelessWidget {
       child: Container(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: const Image(
-          image: AssetImage('assets/images/content.jpg')
+        child:  Image(
+          image: NetworkImage(BookModel.fromJson(json: BooklyCubit.get(context).allBooksResult,index: bookItemIndex).smallThumbnail)
         ),
       ),
     );
