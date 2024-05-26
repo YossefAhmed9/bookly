@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/cubit/home_cubit/cubit.dart';
+import 'core/utils/dio_helper.dart';
 import 'core/utils/routes.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DioHelper.init();
+
   runApp(const MyApp());
 }
 
@@ -16,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => BooklyCubit(),
+          create: (context) => BooklyCubit()..FetchAllBooks()..FetchBookDetails(),
           lazy: true,
         ),
       ],
@@ -28,6 +32,5 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-  // GoRouter configuration
 
 }
