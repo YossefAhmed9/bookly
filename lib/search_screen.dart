@@ -1,7 +1,6 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/presentation/widgets/best_seller_item_listView.dart';
 import 'package:flutter/material.dart';
-
 import 'features/presentation/widgets/default_textFormField.dart';
 
 class SearchScreen extends StatelessWidget {
