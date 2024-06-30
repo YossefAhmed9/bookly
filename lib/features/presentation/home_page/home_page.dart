@@ -3,13 +3,11 @@ import 'package:bookly/core/cubit/home_cubit/states.dart';
 import 'package:bookly/core/utils/constants.dart';
 import 'package:bookly/features/presentation/widgets/best_seller_item_listView.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/utils/utils.dart';
 import '../../../core/utils/styles.dart';
-import '../../../data/models/book_model.dart';
 import '../widgets/book_item_listView.dart';
 
 class HomePage extends StatelessWidget {
@@ -56,9 +54,17 @@ class HomePage extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.20,
                         ),
                       ),
-                      SliverToBoxAdapter(
+                      const SliverToBoxAdapter(
+                      child:  Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8.0),
+                          child: Text(
+                            'Best Sellers',
+                            style: Styles.title1,
+                          ),
+                        ),
+                      ),
+                      const SliverToBoxAdapter(
                         child: BestSellerItemListView(
-                          height: MediaQuery.of(context).size.height * 0.623,
                         ),
                       ),
                     ],
