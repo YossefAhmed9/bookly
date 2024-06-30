@@ -6,9 +6,9 @@ class BookSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: InputDecoration(hintText: 'Search book name' ,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-
+        decoration: InputDecoration(
+      hintText: 'Search book name',
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
     ));
   }
 }
