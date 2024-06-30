@@ -1,10 +1,9 @@
+import 'package:bookly/core/cubit/home_cubit/cubit.dart';
+import 'package:bookly/data/models/book_model.dart';
 import 'package:bookly/features/presentation/widgets/book_item_listView.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../core/utils/styles.dart';
 import 'book_price_button.dart';
 import 'book_rating.dart';
@@ -51,20 +50,21 @@ class BookDetails extends StatelessWidget {
                     decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(25)),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: Image.asset(
-                      'assets/images/content.jpg',
+                    child: Image.network(
+                      BookModel.fromJson(json: BooklyCubit.get(context).allBooksResult, index:BooklyCubit.get(context).bookIndex).normalThumbnail,
                       fit: BoxFit.fill,
                     ),
                   ),
                   //Book title
                   Text(
-                    'Book Title',
+                    BookModel.fromJson(json: BooklyCubit.get(context).allBooksResult, index: BooklyCubit.get(context).bookIndex).title,
                     style: Styles.bookTitle
                         .copyWith(fontWeight: FontWeight.w200, fontSize: 30),
+                    maxLines: 2,
                   ),
                   //Author name
                   Text(
-                    'Author name',
+                    '${BookModel.fromJson(json: BooklyCubit.get(context).allBooksResult, index: BooklyCubit.get(context).bookIndex).authors[0]}',
                     style: Styles.authorName
                         .copyWith(fontSize: 20, fontStyle: FontStyle.italic),
                   ),
@@ -94,8 +94,11 @@ class BookDetails extends StatelessWidget {
                         ),
                         Container(
                           decoration: const BoxDecoration(),
-                          child: BookItemListView(
-                            height: MediaQuery.of(context).size.height * 0.17,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 12.0),
+                            child: BookItemListView(
+                              height: MediaQuery.of(context).size.height * 0.17,
+                            ),
                           ),
                         ),
                       ],
