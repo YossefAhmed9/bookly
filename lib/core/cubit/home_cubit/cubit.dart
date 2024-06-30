@@ -30,18 +30,19 @@ class BooklyCubit extends Cubit<BooklyStates> {
     GoRouter.of(context).pushReplacement('/');
   }
 
-  List allBooksItems=[];
-  List bookDetailsItems=[];
+  late int bookIndex;
+  List allBooksItems = [];
+  List bookDetailsItems = [];
   var allBooksResult;
 
   FetchAllBooks() async {
     emit(BooklyGetDataLoadingState());
     await DioHelper.getData(
       url: APIconstants.fetchBooks,
-      query: {"Filtering": "free-ebooks", "q": "programming"},
+      query: {"Filtering": "free-ebooks", "q": "flutter"},
     ).then((value) async {
       allBooksItems.addAll(value.data['items']);
-      allBooksResult=value.data;
+      allBooksResult = value.data;
       //print(allBooksItems);
       emit(BooklyGetDataDoneState());
       //return await value.data;
@@ -52,15 +53,16 @@ class BooklyCubit extends Cubit<BooklyStates> {
       emit(BooklyGetDataErrorState(error));
     });
   }
-var bookDetails;
-   FetchBookDetails() {
+
+  var bookDetails;
+  FetchBookDetails() {
     emit(BooklyGetDataLoadingState());
     DioHelper.getData(
         url: APIconstants.fetchBookDetails,
         query: {"q": "programming"}).then((value) async {
       // print(value.data);
       bookDetailsItems.addAll(value.data['items']);
-      bookDetails=value.data;
+      bookDetails = value.data;
       //print(bookDetailsItems.length);
       emit(BooklyGetDataDoneState());
     }).catchError((error) {
