@@ -12,26 +12,29 @@ class SearchScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Search"),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const BookSearch(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  child: Text(
-                    'Search Results',
-                    style: Styles.title1.copyWith(fontSize: 20),
-                  ),
-                ),
-                BestSellerItemListView(height: MediaQuery.of(context).size.height * 0.725,)
-              ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: CustomScrollView(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          slivers: [
+            const SliverToBoxAdapter(
+              child: BookSearch(),
             ),
-          ),
-        ],
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                child: Text(
+                  'Search Results',
+                  style: Styles.title1.copyWith(fontSize: 20),
+                ),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: BestSellerItemListView(),
+            ),
+          ],
+        ),
       ),
     );
   }
