@@ -11,7 +11,7 @@ class BestSellerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         //bestSellerIndex=BooklyCubit.get(context).bookIndex;
         BooklyCubit.get(context).bookIndex = bestSellerIndex;
