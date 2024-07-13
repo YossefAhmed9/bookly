@@ -6,8 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerItem extends StatelessWidget {
-  BestSellerItem({super.key, required this.bestSellerIndex});
-  int bestSellerIndex;
+  const BestSellerItem({super.key, required this.bestSellerIndex});
+ final int bestSellerIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class BestSellerItem extends StatelessWidget {
                       style: Styles.authorName),
                   Row(
                     children: [
-                      Text('19.99\$', style: Styles.price),
+                      const Text('19.99\$', style: Styles.price),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.17,
                       ),
