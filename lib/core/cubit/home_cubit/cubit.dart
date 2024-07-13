@@ -2,9 +2,8 @@ import 'package:bookly/core/cubit/home_cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../../data/models/book_model.dart';
-import '../../utils/api_constants.dart';
-import '../../utils/dio_helper.dart';
+import '../../network/remote/dio_helper.dart';
+import '../../network/remote/api_constants.dart';
 
 class BooklyCubit extends Cubit<BooklyStates> {
   BooklyCubit() : super(BooklyInitState());
@@ -14,17 +13,6 @@ class BooklyCubit extends Cubit<BooklyStates> {
   void navigateTo(context, screen) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
   }
-
-  //waitTwoSeconds(context, screen){
-
-  // Future.delayed(const Duration(seconds: 2)).then((value) {
-  //   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => screen),
-  //           (route){
-  //     return false;
-  //   }
-  //
-  //   );
-  // });}
 
   void navigateAndDelPast(context) {
     GoRouter.of(context).pushReplacement('/');
